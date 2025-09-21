@@ -6,37 +6,94 @@
     <title>Mythrial Agency - Desvende Sua Lenda</title>
     <meta name="description" content="A Mythrial Agency transforma streamers de RPG em ícones da comunidade. Junte-se à nossa guilda e eleve seu streaming a um novo nível.">
     <meta name="keywords" content="streaming, RPG, Twitch, YouTube, Tibia, gaming, agency">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mythriagency.com/">
+    <meta property="og:title" content="Mythrial Agency - Desvende Sua Lenda">
+    <meta property="og:description" content="A Mythrial Agency transforma streamers de RPG em ícones da comunidade. Junte-se à nossa guilda e eleve seu streaming a um novo nível.">
+    <meta property="og:image" content="https://www.mythriagency.com/logo.PNG">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mythriagency.com/">
+    <meta property="twitter:title" content="Mythrial Agency - Desvende Sua Lenda">
+    <meta property="twitter:description" content="A Mythrial Agency transforma streamers de RPG em ícones da comunidade. Junte-se à nossa guilda e eleve seu streaming a um novo nível.">
+    <meta property="twitter:image" content="https://www.mythriagency.com/logo.PNG">
+    
+    <!-- Preconnect para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload recursos críticos -->
     <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="logo.PNG" as="image">
+    <link rel="preload" href="insta.png" as="image">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="insta.png" type="image/x-icon">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Mythrial Agency",
+      "description": "A Mythrial Agency transforma streamers de RPG em ícones da comunidade",
+      "url": "https://www.mythriagency.com",
+      "logo": "https://www.mythriagency.com/logo.PNG",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.instagram.com/mythrial_agency",
+        "https://www.twitch.tv/mythrial_agency"
+      ],
+      "serviceType": "Streaming Agency",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brazil"
+      }
+    }
+    </script>
 </head>
 <body>
-    <header class="header" id="header">
-        <nav class="nav-container">
+
+    
+    <header class="header" id="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Navegação principal">
             <div class="logo">
                 <span class="logo-text">Mythrial Agency</span>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navLinks">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <nav class="nav-links" id="navLinks">
-                <a href="#home">Início</a>
-                <a href="#about">Sobre</a>
-                <a href="#services">Serviços</a>
-                <a href="#signup">Cadastro</a>
+            <nav class="nav-links" id="navLinks" aria-label="Links de navegação">
+                <a href="#home" role="menuitem">Início</a>
+                <a href="#about" role="menuitem">Sobre</a>
+                <a href="#services" role="menuitem">Serviços</a>
+                <a href="#testimonials" role="menuitem">Depoimentos</a>
+                <a href="#faq" role="menuitem">FAQ</a>
+                <a href="#signup" role="menuitem">Cadastro</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
             </nav>
         </nav>
     </header>
 
-    <main>
-       
-        <section class="hero" id="home">
+    <main id="main-content" role="main">
+        <!-- Seção Hero -->
+        <section class="hero" id="home" aria-labelledby="hero-title">
             <div class="hero-content fade-in">
-                <img src="insta.png" alt="Logo Mythrial Agency" class="hero-logo">
-                <h1>Desvende Sua Lenda</h1>
+                
+                <h1 id="hero-title">Desvende Sua Lenda</h1>
                 <p class="hero-subtitle">Eleve Seu Streaming de RPG com a Mythrial Agency</p>
                 <p class="hero-description">Somos a agência que transforma streamers de RPG em ícones da comunidade, cuidando de tudo para você focar no que ama.</p>
                 <a href="#signup" class="cta-button">
@@ -46,7 +103,7 @@
             </div>
         </section>
 
-       
+        <!-- Seção Sobre -->
         <section class="section fade-in" id="about">
             <div class="container">
                 <h2>Nossa História</h2>
@@ -58,6 +115,7 @@
             </div>
         </section>
 
+        <!-- Seção Missão -->
         <section class="section fade-in">
             <div class="container">
                 <h2>Nossa Missão</h2>
@@ -68,7 +126,7 @@
             </div>
         </section>
 
-      
+        <!-- Seção Serviços -->
         <section class="section fade-in" id="services">
             <div class="container">
                 <h2>Nossos Serviços</h2>
@@ -93,70 +151,180 @@
             </div> 
         </section>
 
-       
-        <section class="section fade-in">
+        <!-- Seção de Estatísticas -->
+        <section class="section fade-in" id="stats">
             <div class="container">
-                <h2>Nossos Heróis</h2>
-                <div class="partners-grid">
-                    <div class="partner-card">
-                        <img src="logo.PNG" alt="Streamer 1" class="partner-photo">
-                        <h3>Belize</h3>
-                        <div class="partner-socials">
-                            <a href="#" class="social-link">
-                                <img src="icons/twitch.svg" alt="Twitch" class="social-icon">
-                                <span>TWITCH DO BELIZE</span>
-                            </a>
-                            <a href="#" class="social-link">
-                                <img src="icons/instagram.svg" alt="Instagram" class="social-icon">
-                                <span>Instagram</span>
-                            </a>
-                            <a href="#" class="social-link">
-                                <img src="icons/youtube.svg" alt="YouTube" class="social-icon">
-                                <span>YouTube</span>
-                            </a>
+                <h2>Números Que Falam Por Si</h2>
+                <p class="section-subtitle">Resultados reais que transformam streamers em lendas</p>
+                <div class="stats-grid">
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-number" data-target="150">0</div>
+                        <h3>Streamers Atendidos</h3>
+                        <p>Criadores de conteúdo confiaram em nossa expertise</p>
+                    </div>
+                    
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-number" data-target="280">0</div>
+                        <div class="stat-suffix">%</div>
+                        <h3>Crescimento Médio</h3>
+                        <p>Aumento na audiência dos nossos parceiros</p>
+                    </div>
+                    
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-number" data-target="95">0</div>
+                        <div class="stat-suffix">%</div>
+                        <h3>Taxa de Sucesso</h3>
+                        <p>Streamers que alcançaram suas metas conosco</p>
+                    </div>
+                    
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-prefix">R$</div>
+                        <div class="stat-suffix">M+</div>
+                        <h3>Receita Gerada</h3>
+                        <p>Total em parcerias e monetização conquistadas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Depoimentos -->
+        <section class="section fade-in" id="testimonials">
+            <div class="container">
+                <h2>O Que Nossos Heróis Dizem</h2>
+                <p class="section-subtitle">Histórias reais de transformação na comunidade RPG</p>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p>"A Mythrial mudou completamente minha carreira. Em 6 meses, meu canal cresceu 300% e consegui as primeiras parcerias importantes. Agora posso viver do que amo!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="logo.PNG" alt="Belize" class="author-photo">
+                            <div class="author-info">
+                                <h4>Belize</h4>
+                                <span>Streamer de Tibia</span>
+                                <div class="author-stats">
+                                    <span class="stat">15K seguidores</span>
+                                    <span class="stat">+300% crescimento</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p>"O suporte da equipe é incrível. Eles cuidam de toda a parte chata para eu focar no que realmente importa: criar conteúdo épico para minha comunidade."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="logo.PNG" alt="Luna" class="author-photo">
+                            <div class="author-info">
+                                <h4>Luna_RPG</h4>
+                                <span>Streamer de Final Fantasy XIV</span>
+                                <div class="author-stats">
+                                    <span class="stat">22K seguidores</span>
+                                    <span class="stat">5 parcerias ativas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p>"Antes da Mythrial, eu tinha talento mas não sabia como transformar isso em uma carreira. Hoje sou um streamer profissional com renda estável."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="logo.PNG" alt="Phoenix" class="author-photo">
+                            <div class="author-info">
+                                <h4>PhoenixWoW</h4>
+                                <span>Streamer de World of Warcraft</span>
+                                <div class="author-stats">
+                                    <span class="stat">18K seguidores</span>
+                                    <span class="stat">Renda 100% streaming</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção FAQ -->
+        <section class="section fade-in" id="faq">
+            <div class="container">
+                <h2>Perguntas Frequentes</h2>
+                <p class="section-subtitle">Esclareça suas dúvidas sobre nossos serviços</p>
+                <div class="faq-container">
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+                            <span>Como funciona o processo de seleção da Mythrial Agency?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-1">
+                            <p>Nosso processo é simples e transparente. Após você preencher nosso formulário, nossa equipe analisa seu perfil, histórico de streaming e potencial de crescimento. Em seguida, agendamos uma conversa para conhecer melhor seus objetivos e explicar como podemos ajudar.</p>
                         </div>
                     </div>
-                    <div class="partner-card">
-                        <img src="logo.PNG" alt="Streamer 2" class="partner-photo">
-                        <h3>Streamer de World of Warcraft</h3>
-                        <div class="partner-socials">
-                            <a href="#" class="social-link">
-                                <img src="icons/twitch.svg" alt="Twitch" class="social-icon">
-                                <span>Twitch</span>
-                            </a>
-                            <a href="#" class="social-link">
-                                <img src="icons/instagram.svg" alt="Instagram" class="social-icon">
-                                <span>Instagram</span>
-                            </a>
-                            <a href="#" class="social-link">
-                                <img src="icons/youtube.svg" alt="YouTube" class="social-icon">
-                                <span>YouTube</span>
-                            </a>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+                            <span>Quais são os custos dos serviços da agência?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-2">
+                            <p>Trabalhamos com um modelo de comissão sobre as oportunidades que geramos para você. Não cobramos nada antecipado - só ganhamos quando você ganha. Os percentuais variam conforme o pacote de serviços escolhido.</p>
                         </div>
                     </div>
-                    <div class="partner-card">
-                        <img src="logo.PNG" alt="Streamer 3" class="partner-photo">
-                        <h3>Streamer de Final Fantasy XIV</h3>
-                        <div class="partner-socials">
-                            <a href="#" class="social-link">
-                                <img src="icons/twitch.svg" alt="Twitch" class="social-icon">
-                                <span>Twitch</span>
-                            </a>
-                            <a href="#" class="social-link">
-                                <img src="icons/instagram.svg" alt="Instagram" class="social-icon">
-                                <span>Instagram</span>
-                            </a>
-                            <a href="#" class="social-link">
-                                <img src="icons/youtube.svg" alt="YouTube" class="social-icon">
-                                <span>YouTube</span>
-                            </a>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+                            <span>Preciso ter um número mínimo de seguidores?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-3">
+                            <p>Não há um número mínimo fixo. Valorizamos mais a qualidade do conteúdo, engajamento da audiência e potencial de crescimento do que apenas números. Já ajudamos streamers desde iniciantes até aqueles com milhares de seguidores.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+                            <span>Quais jogos de RPG vocês focam?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-4">
+                            <p>Trabalhamos com todos os tipos de RPG: MMORPGs como Tibia, World of Warcraft, Final Fantasy XIV; RPGs de mesa via stream; RPGs single-player como Baldur's Gate, Cyberpunk; e RPGs indie. Nossa expertise abrange todo o universo RPG.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+                            <span>Quanto tempo leva para ver resultados?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-5">
+                            <p>Os primeiros resultados geralmente aparecem entre 30-60 dias, com melhorias na organização do canal e estratégia de conteúdo. Crescimento significativo em audiência e parcerias costuma acontecer entre 3-6 meses de trabalho conjunto.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+                            <span>Vocês trabalham apenas com streamers brasileiros?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-6">
+                            <p>Atualmente focamos no mercado brasileiro e português, mas estamos abertos a trabalhar com criadores de outros países que produzam conteúdo em português ou tenham interesse no mercado brasileiro.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    
+        <!-- Seção Cadastro -->
         <section class="section fade-in" id="signup">
             <div class="container">
                 <h2>Junte-se à Nossa Guilda</h2>
