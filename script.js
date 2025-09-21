@@ -475,6 +475,160 @@ class ErrorHandler {
     }
 }
 
+// ===== STATS COUNTER =====
+class StatsCounter {
+    constructor() {
+        this.counters = document.querySelectorAll('.stat-number');
+        this.hasAnimated = false;
+        this.init();
+    }
+
+    init() {
+        if (this.counters.length > 0) {
+            this.setupIntersectionObserver();
+        }
+    }
+
+    setupIntersectionObserver() {
+        const options = {
+            threshold: 0.7,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !this.hasAnimated) {
+                    this.hasAnimated = true;
+                    this.animateCounters();
+                }
+            });
+        }, options);
+
+        // Observar a seção de estatísticas
+        const statsSection = document.getElementById('stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    }
+
+    animateCounters() {
+        this.counters.forEach((counter, index) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 segundos
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+
+            // Delay baseado no índice para efeito escalonado
+            setTimeout(() => {
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            }, index * 200);
+        });
+    }
+}
+
+// ===== FAQ HANDLER =====
+class FAQHandler {
+    constructor() {
+        this.faqItems = document.querySelectorAll('.faq-item');
+        this.init();
+    }
+
+    init() {
+        this.faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            if (question && answer) {
+                question.addEventListener('click', () => this.toggleFAQ(question, answer));
+                question.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.toggleFAQ(question, answer);
+                    }
+                });
+            }
+        });
+    }
+
+    toggleFAQ(question, answer) {
+        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+        
+        // Fechar todos os outros FAQs
+        this.faqItems.forEach(item => {
+            const otherQuestion = item.querySelector('.faq-question');
+            const otherAnswer = item.querySelector('.faq-answer');
+            if (otherQuestion !== question) {
+                otherQuestion.setAttribute('aria-expanded', 'false');
+                otherAnswer.classList.remove('active');
+            }
+        });
+
+        // Toggle do FAQ atual
+        if (!isExpanded) {
+            question.setAttribute('aria-expanded', 'true');
+            answer.classList.add('active');
+        } else {
+            question.setAttribute('aria-expanded', 'false');
+            answer.classList.remove('active');
+        }
+    }
+}
+
+// ===== THEME TOGGLE =====
+class ThemeToggle {
+    constructor() {
+        this.toggleBtn = document.getElementById('themeToggle');
+        this.themeIcon = document.querySelector('.theme-icon');
+        this.currentTheme = localStorage.getItem('theme') || 'dark';
+        this.init();
+    }
+
+    init() {
+        this.setTheme(this.currentTheme);
+        
+        if (this.toggleBtn) {
+            this.toggleBtn.addEventListener('click', () => this.toggle());
+        }
+        
+        // Detectar preferência do sistema
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        prefersDark.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                this.setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+
+    toggle() {
+        const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+        this.setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+
+    setTheme(theme) {
+        this.currentTheme = theme;
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        if (this.themeIcon) {
+            this.themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+        }
+        
+        if (this.toggleBtn) {
+            this.toggleBtn.setAttribute('aria-label', 
+                theme === 'dark' ? 'Alternar para tema claro' : 'Alternar para tema escuro'
+            );
+        }
+    }
+}
+
 class App {
     constructor() {
         this.components = {};
@@ -495,6 +649,9 @@ class App {
             this.components.performanceMonitor = new PerformanceMonitor();
             this.components.accessibilityEnhancer = new AccessibilityEnhancer();
             this.components.errorHandler = new ErrorHandler();
+            this.components.statsCounter = new StatsCounter();
+            this.components.faqHandler = new FAQHandler();
+            this.components.themeToggle = new ThemeToggle();
             console.log('Mythrial Agency website initialized successfully');
         } catch (error) {
             console.error('Failed to initialize website:', error);
